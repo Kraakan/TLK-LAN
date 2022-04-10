@@ -1,0 +1,97 @@
+$length: 20em;
+
+@mixin cube{
+
+}
+
+body{
+    background-color: black;
+}
+#anim{
+    height: 100vh;
+    perspective: 50em;
+}
+#anim * {
+    position: absolute;
+    top: 30%; left: 30%;
+    transform-style: preserve-3d;
+  }
+
+@keyframes spin{
+    from {
+        transform:rotate3d(1, 1, 1, 0deg);
+
+    }
+    to {
+        transform:rotate3d(1, 1, 1, 360deg);
+
+    }
+}
+@keyframes pulsate{
+    0% {
+        opacity: 1;
+      }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+      }
+}
+
+#cube{
+  animation: spin 4s infinite;
+  animation-timing-function: linear;
+  transform-origin: .5*$length .5*$length 0em;
+  p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    color: rgb(69,109,180);
+    transform: translate(-30%,-30%);
+  }
+}
+.cubeface{
+    &::before{
+        content: "~";
+    }
+    width: $length; 
+    height: $length;
+    backface-visibility: hidden;
+    background-color:white;
+    animation: rainbow 15s infinite running;
+    border-style: solid;
+    .inverted{
+        filter: invert(100%);
+    }
+}
+.logo{
+    transform: translate(-30%,-30%);
+    width: 100%;
+    height: 100%;
+    animation: pulsate 2s infinite;
+}
+#front{
+    transform: translateZ(.5*$length);
+}
+#left{
+    transform: rotateY(-90deg) translateZ(.5*$length);
+}
+#back{
+    transform: rotateY(180deg) translateZ(.5*$length);
+}
+#right{
+    transform: rotateY(90deg) translateZ(.5*$length) rotate(90deg);
+}
+#top{
+    transform: rotateX(90deg) translateZ(.5*$length);
+}
+#bottom{
+    transform: rotateX(-90deg) translateZ(.5*$length) rotate(-90deg); 
+}
+@keyframes rainbow{
+    0%{background-color: red;} 
+    16.7%{background-color: violet;} 
+    33.3%{background-color: blue;}  50%{background-color: cyan;}    
+    66.6%{background-color: green;}    83.3%{background-color: yellow;}  
+    100%{background-color: orange;}
+}

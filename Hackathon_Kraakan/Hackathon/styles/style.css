@@ -1,0 +1,188 @@
+body {
+  background-color: black;
+}
+
+#anim {
+  height: 100vh;
+  -webkit-perspective: 50em;
+          perspective: 50em;
+}
+
+#anim * {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate3d(1, 1, 1, 0deg);
+            transform: rotate3d(1, 1, 1, 0deg);
+  }
+  to {
+    -webkit-transform: rotate3d(1, 1, 1, 360deg);
+            transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate3d(1, 1, 1, 0deg);
+            transform: rotate3d(1, 1, 1, 0deg);
+  }
+  to {
+    -webkit-transform: rotate3d(1, 1, 1, 360deg);
+            transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#cube {
+  -webkit-animation: spin 4s infinite;
+          animation: spin 4s infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-transform-origin: 10em 10em 0em;
+          transform-origin: 10em 10em 0em;
+}
+
+#cube p {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: xx-large;
+  color: #456db4;
+  -webkit-transform: translate(-30%, -30%);
+          transform: translate(-30%, -30%);
+}
+
+.cubeface {
+  width: 20em;
+  height: 20em;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: white;
+  -webkit-animation: rainbow 15s infinite running;
+          animation: rainbow 15s infinite running;
+  border-style: solid;
+}
+
+.cubeface::before {
+  content: "~";
+}
+
+.cubeface .inverted {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.logo {
+  -webkit-transform: translate(-30%, -30%);
+          transform: translate(-30%, -30%);
+  width: 100%;
+  height: 100%;
+  -webkit-animation: pulsate 2s infinite;
+          animation: pulsate 2s infinite;
+}
+
+#front {
+  -webkit-transform: translateZ(10em);
+          transform: translateZ(10em);
+}
+
+#left {
+  -webkit-transform: rotateY(-90deg) translateZ(10em);
+          transform: rotateY(-90deg) translateZ(10em);
+}
+
+#back {
+  -webkit-transform: rotateY(180deg) translateZ(10em);
+          transform: rotateY(180deg) translateZ(10em);
+}
+
+#right {
+  -webkit-transform: rotateY(90deg) translateZ(10em) rotate(90deg);
+          transform: rotateY(90deg) translateZ(10em) rotate(90deg);
+}
+
+#top {
+  -webkit-transform: rotateX(90deg) translateZ(10em);
+          transform: rotateX(90deg) translateZ(10em);
+}
+
+#bottom {
+  -webkit-transform: rotateX(-90deg) translateZ(10em) rotate(-90deg);
+          transform: rotateX(-90deg) translateZ(10em) rotate(-90deg);
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    background-color: red;
+  }
+  16.7% {
+    background-color: violet;
+  }
+  33.3% {
+    background-color: blue;
+  }
+  50% {
+    background-color: cyan;
+  }
+  66.6% {
+    background-color: green;
+  }
+  83.3% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-color: red;
+  }
+  16.7% {
+    background-color: violet;
+  }
+  33.3% {
+    background-color: blue;
+  }
+  50% {
+    background-color: cyan;
+  }
+  66.6% {
+    background-color: green;
+  }
+  83.3% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+/*# sourceMappingURL=style.css.map */

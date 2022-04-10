@@ -1,0 +1,1 @@
+package com.company;interface M{static void main(String[]z){int a=101,b=0;for(int i=1;i<a;i++)b+=i*i;a*=(a-1)/2;System.out.print(a*a-b);}}
